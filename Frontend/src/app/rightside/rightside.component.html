@@ -1,0 +1,32 @@
+<div class = "row mb-2"> 
+  <div class = "col-4">
+      <label for="reg">registered times</label>
+      <select multiple size="2" class="form-select" [(ngModel)]="selectValue" id="reg">
+        <option *ngFor="let time of registered_Times" [ngValue]="time">{{time.hour_and_minute}}</option>
+      </select>
+  </div> 
+  <div class="col-2">
+    <label for="h_input">hour</label>
+    <input (keyup)="hourInput($event)" class="form-control" id="h_input" type="text" maxlength="2">
+  </div>
+  <div class="col-2">
+    <label for="m_input">min</label>
+    <input (keyup)="minuteInput($event)" class="form-control" id="m_input" type="text" maxlength="2">
+  </div>
+  <div class="col-4">
+    <label for="pos">position</label>
+    <select multiple size="2" class="form-select" [(ngModel)]="positionTemp" id="pos">
+      <option *ngFor="let position of Time_positions" [ngValue]="position">{{position}}</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <button (click) = "addNewTime()" class="btn btn-primary btn-block m-1">
+    Add Time
+  </button>
+</div>
+<div class="row">
+  <button (click) = "deleteTime()" class="btn btn-primary btn-block m-1">
+    Delete
+  </button>
+</div>
